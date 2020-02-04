@@ -1,0 +1,11 @@
+
+<header>
+
+<h1><%= link_to 'memo', '/', {class: "legros"} %></h1>
+ <p><%= link_to 'add', new_memo_path, {class: "menu"} %></p>
+
+</header>
+
+<div class="content">
+ <%= render partial: "memobox", locals: { memo: @memo } %>
+</div>

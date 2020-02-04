@@ -1,0 +1,17 @@
+
+<header>
+
+<h1><%= link_to 'memo', '/', {class: "legros"} %></h1>
+<% if user_signed_in? %>
+  <p><%= link_to 'add', 'memos/new', {class: "menu"} %></p>
+  <p><%= link_to 'out', destroy_user_session_path, {class: "menu", method: :delete} %></p>
+<% else %>
+  <p><%= link_to 'signup', new_user_registration_path, {class: "menu"} %></p>
+  <p><%= link_to 'login', new_user_session_path, {class: "menu"} %></p>
+<% end %>
+</header>
+
+<div class="content">
+<% @memos.each do |memo| %>
+  <%= render partial: "memobox", locals: { memo: memo } %>
+<% end %>

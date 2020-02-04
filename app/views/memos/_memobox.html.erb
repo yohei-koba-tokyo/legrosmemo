@@ -1,0 +1,27 @@
+  <div class="memobox">
+    <div class="day_rate">
+      <p><%= memo.user.nickname %>'s memo … </p>
+      <p><%= l memo.created_at %></p>
+      <p>
+        <% case memo.rate %>
+          <% when 0  %>
+              _feeling..[☓________]
+          <% when 1 %>
+              _feeling..[★________]
+          <% when 2 %>
+              _feeling..[★★______]
+          <% when 3 %>
+              _feeling..[★★★____]
+          <% when 4 %>
+              _feeling..[★★★★__]
+          <% else %>
+              _feeling..[★★★★★]
+        <% end %>
+      </p>
+      <div> <%=link_to ':Edit', edit_memo_path(memo.id), {class: "btn"}%> </div>
+    </div>
+    <div class="memo" >
+      <%= simple_format(memo.content, sanitize: true) %>
+    </div>
+    
+  </div>

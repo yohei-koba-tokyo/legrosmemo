@@ -1,0 +1,20 @@
+<header>
+
+<h1><%= link_to 'memo', '/', {class: "legros"} %></h1>
+
+<div class="add">
+<%= form_with model: @memo, local: true do |form| %>
+  <%= form.text_field :content, {placeholder: "change a memo", class: "writing"} %>
+  <%= form.number_field :rate, {placeholder: "rating 0 ~ 5", class: "writing"} %>
+  <%= form.submit 'submit', {class: "menu submit"} %>
+<% end %>
+</div>
+<div>
+  <%= link_to 'delete', memo_path, {class: "menu delete", method: :delete } %>
+</div>
+
+</header>
+
+<div class="content">
+ <%= render partial: "memobox", locals: { memo: @memo } %>
+</div>
